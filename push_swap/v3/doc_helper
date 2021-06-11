@@ -1,0 +1,58 @@
+./push_swap "4 67 3 87 23"
+./push_swap 4 67 3 87 23 
+
+make && ./push_swap "4 67 3 87 23" && ./push_swap 67 3 87 23 && make fclean
+
+make && ./push_swap 0 5456 2 13 4 5 6 7 8 9 && make fclean
+
+fl
+-1	main
+-2	ft_swap_s
+-3	ft_swap_r
+-4	ft_swap_rrm
+-5	ft_atoi_m
+-6	ft_chek_sort
+
+
+make && make clean && ARG=`ruby -e "puts (0..99).to_a.shuffle.join(' ')"` && ./push_swap $ARG
+
+make && make clean	&& ./push_swap 2 1 3 && make fclean
+
+ARG="0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 39 36 37 38 40"
+
+
+
+	printf("mid = %d\n", mid);
+	int kkk = ft_chek_lst(data->a_beg, mid);
+	printf("kkk = %d\n", kkk);
+
+
+printf("fl = %d\tar = %d\tac = %d\n", dat.fl, dat.argm, ac);
+printf("%d\t%d\t%d\t%d\n", ma->content, ma->next->content, ma->next->next->content, ma->next->next->next->content);
+
+
+	ft_push_el(data, 'b');
+	printf("A : \t");
+	while (data->a_beg)
+	{
+		printf("%d ", data->a_beg->content);
+		data->a_beg = data->a_beg->next;
+	}
+	printf("\nB : \t");
+	while (data->b_beg)
+	{
+		printf("%d ", data->b_beg->content);
+		data->b_beg = data->b_beg->next;
+	}
+	printf("\n");
+
+
+Run "ARG=`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG"
+
+
+14 20 17 2 9 6 3 13 11 1 19 7 4 18 16 15 5 12 10 8
+
+7 11 9 12 14 1 2 5 13 4 10 3 15 8 6
+
+
+
