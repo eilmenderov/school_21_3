@@ -6,15 +6,17 @@ BONUS =	split.c func_lst.c ps_operat_p1.c ps_operat_p2_pu.c clear_memory.c check
 		push_swap_utils.c solver_utils_p1.c solver_utils_p2.c get_next_line.c sort_chek_arr.c \
 		checker.c 
 
-OBJS = ${SRCS:.c=.o}
+SRCS_DIR = srcs/
 
-BONUS_OBJS = ${BONUS:.c=.o}
+OBJS = ${addprefix ${SRCS_DIR}, ${SRCS:.c=.o}}
+
+BONUS_OBJS = ${addprefix ${SRCS_DIR}, ${BONUS:.c=.o}}
 
 NAME = push_swap
 
 B_NAME = checker
 
-HEADER = head_push_swap.h
+HEADER = ${addprefix ${SRCS_DIR}, head_push_swap.h}
 
 CC = gcc
 RM = rm -f
