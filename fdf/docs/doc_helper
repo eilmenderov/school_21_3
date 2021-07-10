@@ -1,0 +1,16 @@
+
+error flags
+
+-1	read_map
+-2	h = 0 or w = 0 or gnl = -1
+-3	ft_atoi
+-4	malloc - ft_read_map
+-5	malloc - ft_fill_arr
+
+g - gamma
+b - beta
+a - alpha
+u - unlock bonus
+l - lock bonus
+n - line
+m - point
