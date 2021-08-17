@@ -42,7 +42,7 @@ all:		minilibx ${NAME}
 minilibx:	Makefile
 			@${MAKE} -sC ./minilibx_siera
 
-%.o:%.c	
+%.o:%.c		${HEADER}
 			@${CC} ${CFLAGC} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS} ${HEADER}

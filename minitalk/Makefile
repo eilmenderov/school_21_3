@@ -37,7 +37,7 @@ SHALLOW = \033[0m
 
 all:		${NAME_CLIENT} ${NAME_SERVER}
 
-%.o:%.c	
+%.o:%.c		${HEADER}
 			@${CC} ${CFLAGC} -c $< -o ${<:.c=.o}
 
 ${NAME_CLIENT}:	${OBJS_CLIENT} ${HEADER}

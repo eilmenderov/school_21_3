@@ -35,7 +35,7 @@ SHALLOW = \033[0m
 
 .PHONY: all clean fclean re bonus
 
-%.o:%.c	
+%.o:%.c		${HEADER}
 			@${CC} ${CFLAGC} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS} ${HEADER}
