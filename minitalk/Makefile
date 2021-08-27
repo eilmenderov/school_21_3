@@ -18,7 +18,6 @@ NAME_CLIENT_B =	client_b
 NAME_SERVER_B =	server_b
 
 HEADER =	./srcs/head_minitalk.h
-HEADER_B =	./srcs_bonus/head_minitalk_bonus.h
 
 CC = gcc
 RM = rm -f
@@ -50,11 +49,11 @@ ${NAME_SERVER}:	${OBJS_SERVER} ${HEADER}
 
 bonus:	${NAME_CLIENT_B} ${NAME_SERVER_B}
 
-${NAME_CLIENT_B}:	${OBJS_CLIENT_B} ${HEADER_B}
+${NAME_CLIENT_B}:	${OBJS_CLIENT_B} ${HEADER}
 					@${CC} ${CFLAGC} -o ${NAME_CLIENT_B} ${OBJS_CLIENT_B}
 					@echo "${NEW}${NAME_CLIENT_B} compile!${SHALLOW}"
 
-${NAME_SERVER_B}:	${OBJS_SERVER_B} ${HEADER_B}
+${NAME_SERVER_B}:	${OBJS_SERVER_B} ${HEADER}
 					@${CC} ${CFLAGC} -o ${NAME_SERVER_B} ${OBJS_SERVER_B}
 					@echo "${NEW}${NAME_SERVER_B} compile!${SHALLOW}"
 

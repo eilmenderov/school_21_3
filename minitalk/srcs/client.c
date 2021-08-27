@@ -1,6 +1,6 @@
 #include "head_minitalk.h"
 
-static int	ft_atoi_m(const char *str)
+int	ft_atoi_m(const char *str)
 {
 	long long	res;
 

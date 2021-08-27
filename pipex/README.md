@@ -8,15 +8,14 @@ Usage:
 command : 				"./pipex infile "ls -l" "wc -l" outfile"
 must be the same as :	"< infile ls -l | wc -l > outfile"
 
-another example :		"./pipex infile "grep a1" "wc -w" outfile"
-						"< infile grep a1 | wc -w > outfile"
+command : 				"./pipex infile "grep a1" "wc -w" outfile"
+must be the same as :	"< infile grep a1 | wc -w > outfile"
 
-						"./pipex infile "grep part" "grep does" outfile"
-						"< infile grep part | grep does > outfile"
+command : 				"./pipex infile "grep part" "grep does" outfile"
+must be the same as :	"< infile grep part | grep does > outfile"
 
-
-bonus:					"cat << EOF | grep privet >> outfile"
-						"./pipex_bonus here_doc EOF "cat" "grep privet" outfile"
+command bonus: 			"./pipex_bonus here_doc EOF "cat" "grep privet" outfile"
+must be the same as :	"cat << EOF | grep privet >> outfile"
 
 exit cods
 

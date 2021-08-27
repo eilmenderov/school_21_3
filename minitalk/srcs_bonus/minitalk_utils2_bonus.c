@@ -1,4 +1,4 @@
-#include "head_minitalk_bonus.h"
+#include "../srcs/head_minitalk.h"
 
 int	ft_atoi_m(const char *str)
 {

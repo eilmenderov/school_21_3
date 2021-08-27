@@ -35,7 +35,7 @@ SHALLOW = \033[0m
 
 # END COLORS
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus minilibx
 
 all:		minilibx ${NAME}
 
@@ -49,7 +49,7 @@ ${NAME}:	${OBJS} ${HEADER}
 			@${CC} ${CFLAGC} -o ${NAME} -I head_fdf.h ${OBJS} ${MLX_LIBS}
 			@echo "${GREEN}${NAME} compile!${SHALLOW}"
 
-bonus:		${BONUS_OBJS} ${B_HEADER}
+bonus:		minilibx ${BONUS_OBJS} ${B_HEADER}
 			@${CC} ${CFLAGC} -o ${B_NAME} -I head_fdf_bonus.h ${BONUS_OBJS} ${MLX_LIBS}
 			@echo "${NEW}${B_NAME} compile!${SHALLOW}"
 

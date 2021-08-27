@@ -1,4 +1,4 @@
-#include "head_minitalk_bonus.h"
+#include "../srcs/head_minitalk.h"
 
 static int	ft_razm(int c, int sys)
 {

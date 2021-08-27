@@ -1,4 +1,4 @@
-#include "head_minitalk_bonus.h"
+#include "../srcs/head_minitalk.h"
 
 static void	ft_send_conform(char **cl_pid)
 {
