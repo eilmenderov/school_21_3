@@ -37,24 +37,24 @@ SHALLOW = \033[0m
 all:		${NAME_CLIENT} ${NAME_SERVER}
 
 %.o:%.c		${HEADER}
-			@${CC} ${CFLAGC} -c $< -o ${<:.c=.o}
+			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME_CLIENT}:	${OBJS_CLIENT} ${HEADER}
-				@${CC} ${CFLAGC} -o ${NAME_CLIENT} ${OBJS_CLIENT}
+				@${CC} ${CFLAGS} -o ${NAME_CLIENT} ${OBJS_CLIENT}
 				@echo "${GREEN}${NAME_CLIENT} compile!${SHALLOW}"
 
 ${NAME_SERVER}:	${OBJS_SERVER} ${HEADER}
-				@${CC} ${CFLAGC} -o ${NAME_SERVER} ${OBJS_SERVER}
+				@${CC} ${CFLAGS} -o ${NAME_SERVER} ${OBJS_SERVER}
 				@echo "${GREEN}${NAME_SERVER} compile!${SHALLOW}"
 
 bonus:	${NAME_CLIENT_B} ${NAME_SERVER_B}
 
 ${NAME_CLIENT_B}:	${OBJS_CLIENT_B} ${HEADER}
-					@${CC} ${CFLAGC} -o ${NAME_CLIENT_B} ${OBJS_CLIENT_B}
+					@${CC} ${CFLAGS} -o ${NAME_CLIENT_B} ${OBJS_CLIENT_B}
 					@echo "${NEW}${NAME_CLIENT_B} compile!${SHALLOW}"
 
 ${NAME_SERVER_B}:	${OBJS_SERVER_B} ${HEADER}
-					@${CC} ${CFLAGC} -o ${NAME_SERVER_B} ${OBJS_SERVER_B}
+					@${CC} ${CFLAGS} -o ${NAME_SERVER_B} ${OBJS_SERVER_B}
 					@echo "${NEW}${NAME_SERVER_B} compile!${SHALLOW}"
 
 clean:		

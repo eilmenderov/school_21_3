@@ -43,14 +43,14 @@ minilibx:	Makefile
 			@${MAKE} -sC ./minilibx_siera
 
 %.o:%.c		${HEADER}
-			@${CC} ${CFLAGC} -c $< -o ${<:.c=.o}
+			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS} ${HEADER}
-			@${CC} ${CFLAGC} -o ${NAME} -I head_fdf.h ${OBJS} ${MLX_LIBS}
+			@${CC} ${CFLAGS} -o ${NAME} -I head_fdf.h ${OBJS} ${MLX_LIBS}
 			@echo "${GREEN}${NAME} compile!${SHALLOW}"
 
 bonus:		minilibx ${BONUS_OBJS} ${B_HEADER}
-			@${CC} ${CFLAGC} -o ${B_NAME} -I head_fdf_bonus.h ${BONUS_OBJS} ${MLX_LIBS}
+			@${CC} ${CFLAGS} -o ${B_NAME} -I head_fdf_bonus.h ${BONUS_OBJS} ${MLX_LIBS}
 			@echo "${NEW}${B_NAME} compile!${SHALLOW}"
 
 clean:		

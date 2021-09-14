@@ -24,12 +24,13 @@ int	ft_atoi_m(char	*str, t_data *data)
 		neg = -1;
 	if (*str == '-' || *str == '+')
 		str++;
-	while (*str && *str >= '0' && *str <= '9' && res <= MN_INT)
+	while (*str && *str >= '0' && *str <= '9' && res <= (unsigned int)MX_INT)
 	{
 		res = res * 10 + (*str - 48);
 		str++;
 	}
-	if (*str != 0 || (res > MN_INT && neg < 0) || (res > MX_INT && neg > 0))
+	if (*str != 0 || (res > (unsigned int)MX_INT && neg < 0)
+		|| (res > (unsigned int)MX_INT && neg > 0))
 		data->fl = -5;
 	return ((int)res * neg);
 }

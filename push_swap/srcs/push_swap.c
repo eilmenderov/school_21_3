@@ -30,14 +30,14 @@ static char	*ft_choise(char sym)
 static void	ft_solv(t_data *data)
 {
 	t_list	*tmp;
-	int		prev;
 
 	if (data->size < 6)
 	{
 		ft_small_solve(data, 'a');
 		return ;
 	}
-	ft_first_step(data, tmp, prev);
+	tmp = NULL;
+	ft_first_step(data, tmp, 0);
 	ft_solver(data);
 }
 

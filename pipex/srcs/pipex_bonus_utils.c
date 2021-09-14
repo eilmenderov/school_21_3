@@ -44,7 +44,6 @@ void	ft_proc_argv(char **av, t_data *data, int i, int j)
 void	ft_read_file(t_data *data, int *j)
 {
 	int		fd;
-	int		key;
 	char	*line;
 
 	fd = open("here_doc", O_WRONLY | O_TRUNC | O_CREAT, S_IWRITE | S_IREAD);

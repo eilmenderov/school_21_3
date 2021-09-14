@@ -36,14 +36,14 @@ SHALLOW = \033[0m
 .PHONY: all clean fclean re bonus
 
 %.o:%.c		${HEADER}
-			@${CC} ${CFLAGC} -c $< -o ${<:.c=.o}
+			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS} ${HEADER}
-			@${CC} ${CFLAGC} -o ${NAME} ${OBJS}
+			@${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 			@echo "${GREEN}push_swap compile!${SHALLOW}"
 
 bonus:		${BONUS_OBJS} ${HEADER}
-			@${CC} ${CFLAGC} -o ${B_NAME} ${BONUS_OBJS}
+			@${CC} ${CFLAGS} -o ${B_NAME} ${BONUS_OBJS}
 			@echo "${NEW}checker compile!${SHALLOW}"
 
 all:		${NAME} bonus

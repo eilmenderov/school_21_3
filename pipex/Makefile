@@ -31,14 +31,14 @@ SHALLOW = \033[0m
 all:		${NAME}
 
 %.o:%.c		${HEADER}
-			@${CC} ${CFLAGC} -c $< -o ${<:.c=.o}
+			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS} ${HEADER}
-			@${CC} ${CFLAGC} -o ${NAME} ${OBJS}
+			@${CC} ${CFLAGS} -o ${NAME} ${OBJS}
 			@echo "${GREEN}${NAME} compile!${SHALLOW}"
 
 bonus:		${OBJS_B} ${HEADER}
-			@${CC} ${CFLAGC} -o ${NAME_B} ${OBJS_B}
+			@${CC} ${CFLAGS} -o ${NAME_B} ${OBJS_B}
 			@echo "${NEW}${NAME_B} compile!${SHALLOW}"
 
 norm:

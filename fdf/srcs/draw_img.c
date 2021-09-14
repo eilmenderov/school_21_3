@@ -19,8 +19,8 @@ static void	ft_draw_line(t_data *data, int sx, int sy)
 	int	y;
 	int	tmp[2];
 
-	x = ft_ABS(data->end_x - data->st_x);
-	y = ft_ABS(data->end_y - data->st_y);
+	x = ft_abs(data->end_x - data->st_x);
+	y = ft_abs(data->end_y - data->st_y);
 	sx = ft_comper(data->st_x, data->end_x);
 	sy = ft_comper(data->st_y, data->end_y);
 	tmp[0] = x - y;

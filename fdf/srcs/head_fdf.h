@@ -101,7 +101,7 @@ void			draw_image(t_data *data, int x, int y);
 /* draw_utils.c */
 void			ft_isometric(int *x, int *y, int z);
 void			ft_print_menu(t_data *data, int y);
-int				ft_ABS(int a);
+int				ft_abs(int a);
 int				ft_comper(int a, int b);
 void			*ft_memset(void *b, int c, size_t len);
 

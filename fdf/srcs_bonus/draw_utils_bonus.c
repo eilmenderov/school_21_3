@@ -36,7 +36,7 @@ void	ft_print_menu(t_data *data, int y)
 	mlx_string_put(mlx, win, 15, y += 25, COLOR_TEXT, "Exit - ESC");
 }
 
-int	ft_ABS(int a)
+int	ft_abs(int a)
 {
 	if (a < 0)
 		a = -a;
