@@ -20,10 +20,24 @@
 # include <string.h>
 # include <stdio.h>
 
+# define PIC_SIZE	64
+
+# define WALL		'1'
+# define SPACE		'0'
+# define HERO		'P'
+# define EXIT		'E'
+# define COIN		'C'
+
 typedef struct s_map
 {
 	size_t			width;
 	size_t			height;
+	int				max_width;
+	int				max_height;
+	size_t			hero;
+	size_t			coin;
+	size_t			moves;
+	char			**field;
 	struct s_data	*data;
 }				t_map;
 
@@ -48,7 +62,13 @@ typedef struct s_data
 	t_pic	*pic;
 }				t_data;
 
+/* 5/5 parser.c */
+void	ft_parser(t_map *map, char **av);
+
 /* 1/5 so_long_utils.c */
-int	ft_init(int a);
+int		ft_init(int a);
+
+/* 1/5 so_long.c */
+void	ft_error(char *msg);
 
 #endif

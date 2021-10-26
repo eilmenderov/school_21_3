@@ -1,6 +1,6 @@
-SRCS		=	so_long.c so_long_utils.c
+SRCS		=	so_long.c so_long_utils.c parser.c
 
-BONUS		=	so_long.c so_long_utils.c
+BONUS		=	so_long.c so_long_utils.c parser.c
 
 SRCS_DIR	= ./srcs/
 
@@ -40,20 +40,22 @@ SHALLOW = \033[0m
 all:		${NAME}
 
 minilibx:	
-			@${MAKE} -C ./minilibx_opengl
+			${MAKE} -C ./minilibx_opengl 2> /dev/null
 
 %.o:%.c		${HEADER}
-			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 libft:		
-			@make -C ./libft/
+			${MAKE} -C ./libft/
 
-${NAME}:	libft minilibx ${OBJS} ${HEADER}
-			@${CC} ${CFLAGS} -o ${NAME} -I ${HEADER} ${OBJS} ${LIB} ${MLX_LIBS}
+${NAME}:	${OBJS} ${HEADER}
+			${MAKE} -C ./libft/
+			${MAKE} -C ./minilibx_opengl 2> /dev/null
+			${CC} ${CFLAGS} -o ${NAME} -I ${HEADER} ${OBJS} ${LIB} ${MLX_LIBS}
 			@echo "${GREEN}${NAME} compile!${SHALLOW}"
 
 bonus:		libft minilibx ${BONUS_OBJS} ${HEADER}
-			@${CC} ${CFLAGS} -o ${B_NAME} -I ${HEADER} ${BONUS_OBJS} ${LIB} ${MLX_LIBS}
+			${CC} ${CFLAGS} -o ${B_NAME} -I ${HEADER} ${BONUS_OBJS} ${LIB} ${MLX_LIBS}
 			@echo "${NEW}${B_NAME} compile!${SHALLOW}"
 norm:
 			@echo "${GREEN}|-----Chek NORMs!-----|${NEW}"
