@@ -19,10 +19,26 @@ void	ft_error(char *msg)
 	exit(1);
 }
 
-void	ft_init_structs(t_data *data, t_map *map)
+void	ft_init_structs(t_data *data)
 {
-	// ft_init_data(data); // add texture and filled mlx window
-	data->map  = map;
+	data->fl = 0;
+	data->img = NULL;
+	data->mlx = mlx_init();
+	data->win = mlx_new_window(data->mlx, data->map->max_width * PIC_SIZE,
+			data->map->height * PIC_SIZE, "so_long");
+}
+
+void	ft_free_data(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->map->field[i])
+	{
+		free(data->map->field[i]);
+		i++;
+	}
+	free(data->map->field);
 }
 
 void	ft_print(t_data *data)
@@ -45,19 +61,6 @@ void	ft_print(t_data *data)
 	printf("============== end ===============\n");
 }
 
-void	ft_free_data(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (data->map->field[i])
-	{
-		free(data->map->field[i]);
-		i++;
-	}
-	free(data->map->field);
-}
-
 int	main(int ac, char **av)
 {
 	t_data	data;
@@ -67,10 +70,10 @@ int	main(int ac, char **av)
 		ft_error("incorrect arguments, need only one");
 	map.data = &data;
 	ft_parser(&map, av);
-	ft_init_structs(&data, &map);
+	ft_init_structs(&data);
 	ft_print(&data);
 	// ft_start_game(&data);
 	ft_free_data(&data);
-	sleep(10);
+	// sleep(10);
 	return (0);
 }

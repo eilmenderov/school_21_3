@@ -27,6 +27,7 @@
 # define HERO		'P'
 # define EXIT		'E'
 # define COIN		'C'
+# define SYMBOLS	"10PEC"
 
 typedef struct s_map
 {
@@ -54,6 +55,7 @@ typedef struct s_pic
 
 typedef struct s_data
 {
+	int		fl;
 	void	*mlx;
 	void	*win;
 	void	*img;

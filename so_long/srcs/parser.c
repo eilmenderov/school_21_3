@@ -3,7 +3,7 @@
 static void	ft_init_map(t_map *map)
 {
 	mlx_get_screen_size(&map->max_width, &map->max_height);
-	map->max_width = map->max_width / PIC_SIZE  - 1;
+	map->max_width = map->max_width / PIC_SIZE - 1;
 	map->max_height = map->max_height / PIC_SIZE - 1;
 	map->width = 0;
 	map->height = 0;
@@ -72,8 +72,8 @@ static void	ft_field_check(t_map *map)
 	size_t	i;
 	size_t	j;
 
-	if (ft_how_many_char(map->field[0], WALL) != (int)map->width ||
-		ft_how_many_char(map->field[map->height - 1], WALL) != (int)map->width)
+	if (ft_how_many_char(map->field[map->height - 1], WALL) != (int)map->width
+		|| ft_how_many_char(map->field[0], WALL) != (int)map->width)
 		ft_error("hole in up or down walls");
 	i = 1;
 	while (i < map->height - 2 && map->hero < 2)
@@ -85,7 +85,7 @@ static void	ft_field_check(t_map *map)
 		j = 1;
 		while (j < map->width - 2)
 		{
-			if (!ft_ch_for_coinc(map->field[i][j], "10PEC"))
+			if (!ft_ch_for_coinc(map->field[i][j], SYMBOLS))
 				ft_error("incorrect symbol in the map");
 			j++;
 		}
