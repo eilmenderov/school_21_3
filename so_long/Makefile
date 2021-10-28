@@ -1,4 +1,4 @@
-SRCS		=	so_long.c so_long_utils.c parser.c add_image.c
+SRCS		=	so_long.c so_long_utils.c parser.c start_game.c
 
 BONUS		=	so_long.c so_long_utils.c parser.c
 

@@ -82,6 +82,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_how_many_char(char *str, char c);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+int		ft_abs(int a);
 
 /* 2/5 get_next_line_utils.c */
 int		ft_gnl_cheker(char *ost);

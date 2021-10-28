@@ -99,8 +99,8 @@ int	main(int ac, char **av)
 	if (!data.win)
 		ft_error("can't create game window");
 	ft_init_structs(&data);
-	ft_print(&data);
-	// ft_start_game(&data);
+	// ft_print(&data);
+	ft_start_game(&data);
 	// ft_free_data(&data);
 	// sleep(10);
 	return (0);
