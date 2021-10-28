@@ -23,7 +23,7 @@
 # define PIC_SIZE	64
 
 # define WALL		'1'
-# define SPACE		'0'
+# define NONE		'0'
 # define HERO		'P'
 # define EXIT		'E'
 # define COIN		'C'
@@ -44,8 +44,8 @@ typedef struct s_map
 
 typedef struct s_pic
 {
-	void			*hero[4];
-	void			*coin[4];
+	void			*hero;
+	void			*coin;
 	void			*trap;
 	void			*wall;
 	void			*none;
@@ -63,6 +63,9 @@ typedef struct s_data
 	t_map	*map;
 	t_pic	*pic;
 }				t_data;
+
+/* 1/5 start_game.c*/
+void	ft_start_game(t_data *data);
 
 /* 5/5 parser.c */
 void	ft_parser(t_map *map, char **av);
