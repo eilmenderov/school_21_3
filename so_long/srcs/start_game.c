@@ -1,4 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   start_game.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vleida <vleida@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/29 09:59:07 by vleida            #+#    #+#             */
+/*   Updated: 2021/10/29 11:43:08 by vleida           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "head_so_long.h"
+
+// void	ft_step(t_data *data, int key)
+// {
+// 	if (key == 13)
+// 		data->p_y += 1;
+// 	if (key )
+// 	if (data->map->field[x][y] == )
+// }
 
 int	ft_keys(int key, t_data *data)
 {
@@ -30,7 +50,11 @@ void	ft_put_img(size_t x, size_t y, t_data *data, t_map *map)
 	if (map->field[j][i] == '1')
 		mlx_put_image_to_window(data->mlx, data->win, data->pic->wall, x, y);
 	else if (map->field[j][i] == 'P')
+	{
 		mlx_put_image_to_window(data->mlx, data->win, data->pic->hero, x, y);
+		data->p_x = i;
+		data->p_y = j;
+	}
 	else if (map->field[j][i] == 'E')
 		mlx_put_image_to_window(data->mlx, data->win, data->pic->exit, x, y);
 	else if (map->field[j][i] == 'C')
@@ -51,7 +75,7 @@ void	ft_draw_map(t_data *data)
 			ft_put_img(x, y, data, data->map);
 			x += PIC_SIZE;
 		}
-		y += PIC_SIZE;		
+		y += PIC_SIZE;
 	}
 }
 

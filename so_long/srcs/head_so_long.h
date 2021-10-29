@@ -6,7 +6,7 @@
 /*   By: vleida <vleida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:09:40 by vleida            #+#    #+#             */
-/*   Updated: 2021/10/06 16:50:29 by vleida           ###   ########.fr       */
+/*   Updated: 2021/10/29 10:03:13 by vleida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef struct s_pic
 typedef struct s_data
 {
 	int		fl;
+	size_t	p_x;
+	size_t	p_y;
 	void	*mlx;
 	void	*win;
 	void	*img;
