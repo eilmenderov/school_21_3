@@ -21,6 +21,7 @@ static void	ft_init_map(t_map *map)
 	map->height = 0;
 	map->hero = 0;
 	map->coin = 0;
+	map->earn_coins = 0;
 	map->moves = 0;
 	map->field = NULL;
 }
@@ -88,7 +89,7 @@ static void	ft_field_check(t_map *map)
 		|| ft_how_many_char(map->field[0], WALL) != (int)map->width)
 		ft_error("hole in up or down walls");
 	i = 1;
-	while (i < map->height - 2 && map->hero < 2)
+	while (i < map->height - 1 && map->hero < 2)
 	{
 		if (map->field[i][0] != WALL || map->field[i][map->width - 1] != WALL)
 			ft_error("hole in left or right walls");

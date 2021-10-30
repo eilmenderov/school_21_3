@@ -12,7 +12,19 @@
 
 #include "head_so_long.h"
 
-int	ft_init(int a)
+int	ft_close(t_data *data)
 {
-	return (++a);
+	if (data->win)
+		mlx_destroy_window(data->mlx, data->win);
+	ft_free_data(data);
+	exit (0);
+}
+
+int	ft_keys(int key, t_data *data)
+{
+	if (key == 53)
+		ft_close(data);
+	if (key == W_KEY || key == S_KEY || key == D_KEY || key == A_KEY)
+		ft_step(data, key, data->map);
+	return (1);
 }

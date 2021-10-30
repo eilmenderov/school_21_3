@@ -22,6 +22,13 @@
 
 # define PIC_SIZE	64
 
+/* keys */
+# define W_KEY		13
+# define A_KEY		0
+# define S_KEY		1
+# define D_KEY		2
+
+/* map_symbols */
 # define WALL		'1'
 # define NONE		'0'
 # define HERO		'P'
@@ -37,6 +44,7 @@ typedef struct s_map
 	int				max_height;
 	size_t			hero;
 	size_t			coin;
+	size_t			earn_coins;
 	size_t			moves;
 	char			**field;
 	struct s_data	*data;
@@ -58,6 +66,8 @@ typedef struct s_data
 	int		fl;
 	size_t	p_x;
 	size_t	p_y;
+	size_t	res_x;
+	size_t	res_y;
 	void	*mlx;
 	void	*win;
 	void	*img;
@@ -66,16 +76,21 @@ typedef struct s_data
 	t_pic	*pic;
 }				t_data;
 
-/* 1/5 start_game.c*/
-void	ft_start_game(t_data *data);
+/* 3/5 moves.c */
+void	ft_step(t_data *data, int key, t_map *map);
 
 /* 5/5 parser.c */
 void	ft_parser(t_map *map, char **av);
 
-/* 1/5 so_long_utils.c */
-int		ft_init(int a);
+/* 2/5 so_long_utils.c */
+int		ft_close(t_data *data);
+int		ft_keys(int key, t_data *data);
 
-/* 1/5 so_long.c */
+/* 5/5 so_long.c */
 void	ft_error(char *msg);
+void	ft_free_data(t_data *data);
+
+/* 3/5 start_game.c*/
+void	ft_start_game(t_data *data);
 
 #endif

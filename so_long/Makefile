@@ -1,6 +1,6 @@
-SRCS		=	so_long.c so_long_utils.c parser.c start_game.c
+SRCS		=	so_long.c so_long_utils.c parser.c start_game.c moves.c
 
-BONUS		=	so_long.c so_long_utils.c parser.c
+BONUS		=	so_long.c so_long_utils.c parser.c start_game.c moves.c
 
 SRCS_DIR	= ./srcs/
 
