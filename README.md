@@ -10,4 +10,4 @@ To close this level you need to pass 3 projects and Exam_rank_02:
 ### [minitalk](./minitalk) (125/100) ✅ - communication program in the form of a client and server
 ### [pipex](./pipex) (125/100) ✅ - discover pipes
 ### [push_swap](./push_swap) (125/100) ✅ - sorting algorithm
-### [so_long](./so_long) (125/100) - small game(graphic project)
+### [so_long](./so_long) (125/100) ✅ - small game(graphic project)
