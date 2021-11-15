@@ -6,7 +6,7 @@
 /*   By: vleida <vleida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:09:35 by vleida            #+#    #+#             */
-/*   Updated: 2021/10/06 16:48:18 by vleida           ###   ########.fr       */
+/*   Updated: 2021/11/15 15:40:32 by vleida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ void	ft_init_structs(t_data *data)
 	if (!pic)
 		ft_error("can't allocate memory(malloc)");
 	ft_load_xmp(data->mlx, &pic->hero, "./xmp/hero.xpm");
+	ft_load_xmp(data->mlx, &pic->hero_up, "./xmp/up.xpm");
+	ft_load_xmp(data->mlx, &pic->hero_l, "./xmp/left.xpm");
+	ft_load_xmp(data->mlx, &pic->hero_r, "./xmp/right.xpm");
 	ft_load_xmp(data->mlx, &pic->wall, "./xmp/wall.xpm");
 	ft_load_xmp(data->mlx, &pic->none, "./xmp/none.xpm");
 	ft_load_xmp(data->mlx, &pic->exit, "./xmp/exit.xpm");

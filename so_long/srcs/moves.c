@@ -1,20 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vleida <vleida@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/15 15:20:32 by vleida            #+#    #+#             */
+/*   Updated: 2021/11/15 15:43:51 by vleida           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "head_so_long.h"
 
-static void	ft_change_pos(t_data *data, size_t *pos, t_map *map, int fl)
+static void	ft_change_pos(t_data *data, size_t *pos, void *pic, int fl)
 {
-	map->field[data->p_y][data->p_x] = NONE;
+	data->map->field[data->p_y][data->p_x] = NONE;
 	mlx_put_image_to_window(data->mlx, data->win, data->pic->none,
 		data->p_x * PIC_SIZE, data->p_y * PIC_SIZE);
 	if (fl == 1)
 		*pos = *pos + 1;
 	else if (fl == -1)
 		*pos = *pos - 1;
-	if (map->field[data->p_y][data->p_x] == ENEMY)
+	if (data->map->field[data->p_y][data->p_x] == ENEMY)
 		exit(printf("Game Over, you lose =(\n"));
-	map->field[data->p_y][data->p_x] = HERO;
+	data->map->field[data->p_y][data->p_x] = HERO;
 	mlx_put_image_to_window(data->mlx, data->win, data->pic->none,
 		data->p_x * PIC_SIZE, data->p_y * PIC_SIZE);
-	mlx_put_image_to_window(data->mlx, data->win, data->pic->hero,
+	mlx_put_image_to_window(data->mlx, data->win, pic,
 		data->p_x * PIC_SIZE, data->p_y * PIC_SIZE);
 }
 
@@ -60,14 +72,14 @@ void	ft_step(t_data *data, int key, t_map *map)
 {
 	if (key == W_KEY && data->p_y != 0
 		&& !ft_check_new_pos(map, data->p_x, data->p_y - 1))
-		ft_change_pos(data, &data->p_y, map, -1);
+		ft_change_pos(data, &data->p_y, data->pic->hero_up, -1);
 	if (key == S_KEY && data->p_y != map->height - 1
 		&& !ft_check_new_pos(map, data->p_x, data->p_y + 1))
-		ft_change_pos(data, &data->p_y, map, 1);
+		ft_change_pos(data, &data->p_y, data->pic->hero, 1);
 	if (key == A_KEY && data->p_x != 0
 		&& !ft_check_new_pos(map, data->p_x - 1, data->p_y))
-		ft_change_pos(data, &data->p_x, map, -1);
+		ft_change_pos(data, &data->p_x, data->pic->hero_l, -1);
 	if (key == D_KEY && data->p_x != map->width - 1
 		&& !ft_check_new_pos(map, data->p_x + 1, data->p_y))
-		ft_change_pos(data, &data->p_x, map, 1);
+		ft_change_pos(data, &data->p_x, data->pic->hero_r, 1);
 }

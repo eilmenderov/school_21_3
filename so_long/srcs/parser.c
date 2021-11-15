@@ -6,7 +6,7 @@
 /*   By: vleida <vleida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 09:47:34 by vleida            #+#    #+#             */
-/*   Updated: 2021/10/29 09:47:34 by vleida           ###   ########.fr       */
+/*   Updated: 2021/11/15 15:36:34 by vleida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	ft_init_map(t_map *map)
 	map->moves = 0;
 	map->field = NULL;
 	map->data->timer = 0;
+	map->exits = 0;
 }
 
 static void	ft_map_check(int fd, t_map *map, int gnl, int fl)
@@ -95,6 +96,7 @@ static void	ft_field_check(t_map *map)
 		if (map->field[i][0] != WALL || map->field[i][map->width - 1] != WALL)
 			ft_error("hole in left or right walls");
 		map->hero += ft_how_many_char(map->field[i], HERO);
+		map->exits += ft_how_many_char(map->field[i], EXIT);
 		map->coin += ft_how_many_char(map->field[i], COIN);
 		j = 0;
 		while (++j < map->width - 2)
@@ -122,6 +124,10 @@ void	ft_parser(t_map *map, char **av)
 		ft_error("file does not exist or access denied");
 	ft_init_map(map);
 	ft_map_check(fd, map, 1, 0);
+	if (!map->height)
+		ft_error("empty map");
 	ft_pool_field(av[1], map);
 	ft_field_check(map);
+	if (!map->exits)
+		ft_error("dont have exit");
 }

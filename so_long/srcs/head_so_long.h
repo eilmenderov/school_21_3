@@ -6,7 +6,7 @@
 /*   By: vleida <vleida@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:09:40 by vleida            #+#    #+#             */
-/*   Updated: 2021/10/29 10:03:13 by vleida           ###   ########.fr       */
+/*   Updated: 2021/11/15 15:39:10 by vleida           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_map
 	size_t			coin;
 	size_t			earn_coins;
 	size_t			moves;
+	size_t			exits;
 	char			**field;
 	struct s_data	*data;
 }				t_map;
@@ -56,6 +57,9 @@ typedef struct s_pic
 {
 	void			*empty;
 	void			*hero;
+	void			*hero_up;
+	void			*hero_l;
+	void			*hero_r;
 	void			*coin;
 	void			*enemy[3];
 	void			*wall;

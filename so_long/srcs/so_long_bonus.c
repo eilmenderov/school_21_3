@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vleida <vleida@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/15 15:20:37 by vleida            #+#    #+#             */
+/*   Updated: 2021/11/15 15:40:03 by vleida           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "head_so_long.h"
 
 void	ft_error(char *msg)
@@ -28,6 +40,9 @@ void	ft_init_structs(t_data *data)
 	if (!pic)
 		ft_error("can't allocate memory(malloc)");
 	ft_load_xmp(data->mlx, &pic->hero, "./xmp/hero.xpm");
+	ft_load_xmp(data->mlx, &pic->hero_up, "./xmp/up.xpm");
+	ft_load_xmp(data->mlx, &pic->hero_l, "./xmp/left.xpm");
+	ft_load_xmp(data->mlx, &pic->hero_r, "./xmp/right.xpm");
 	ft_load_xmp(data->mlx, &pic->wall, "./xmp/wall.xpm");
 	ft_load_xmp(data->mlx, &pic->none, "./xmp/none.xpm");
 	ft_load_xmp(data->mlx, &pic->exit, "./xmp/exit.xpm");
