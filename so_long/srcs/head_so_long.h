@@ -21,6 +21,7 @@
 # include <stdio.h>
 
 # define PIC_SIZE	64
+# define T_COLOR	0x00FFAA
 
 /* keys */
 # define W_KEY		13
@@ -34,7 +35,8 @@
 # define HERO		'P'
 # define EXIT		'E'
 # define COIN		'C'
-# define SYMBOLS	"10PEC"
+# define ENEMY		'K'
+# define SYMBOLS	"10PECK"
 
 typedef struct s_map
 {
@@ -52,9 +54,10 @@ typedef struct s_map
 
 typedef struct s_pic
 {
+	void			*empty;
 	void			*hero;
 	void			*coin;
-	void			*trap;
+	void			*enemy[3];
 	void			*wall;
 	void			*none;
 	void			*exit;
@@ -64,10 +67,12 @@ typedef struct s_pic
 typedef struct s_data
 {
 	int		fl;
+	int		bonus;
 	size_t	p_x;
 	size_t	p_y;
 	size_t	res_x;
 	size_t	res_y;
+	size_t	timer;
 	void	*mlx;
 	void	*win;
 	void	*img;
@@ -77,6 +82,7 @@ typedef struct s_data
 }				t_data;
 
 /* 3/5 moves.c */
+void	ft_draw_info(t_data *data, t_map *map);
 void	ft_step(t_data *data, int key, t_map *map);
 
 /* 5/5 parser.c */

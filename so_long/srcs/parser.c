@@ -24,6 +24,7 @@ static void	ft_init_map(t_map *map)
 	map->earn_coins = 0;
 	map->moves = 0;
 	map->field = NULL;
+	map->data->timer = 0;
 }
 
 static void	ft_map_check(int fd, t_map *map, int gnl, int fl)
@@ -88,21 +89,21 @@ static void	ft_field_check(t_map *map)
 	if (ft_how_many_char(map->field[map->height - 1], WALL) != (int)map->width
 		|| ft_how_many_char(map->field[0], WALL) != (int)map->width)
 		ft_error("hole in up or down walls");
-	i = 1;
-	while (i < map->height - 1 && map->hero < 2)
+	i = 0;
+	while (++i < map->height - 1 && map->hero < 2)
 	{
 		if (map->field[i][0] != WALL || map->field[i][map->width - 1] != WALL)
 			ft_error("hole in left or right walls");
 		map->hero += ft_how_many_char(map->field[i], HERO);
 		map->coin += ft_how_many_char(map->field[i], COIN);
-		j = 1;
-		while (j < map->width - 2)
+		j = 0;
+		while (++j < map->width - 2)
 		{
 			if (!ft_ch_for_coinc(map->field[i][j], SYMBOLS))
 				ft_error("incorrect symbol in the map");
-			j++;
+			if (map->field[i][j] == 'K' && !map->data->bonus)
+				map->field[i][j] = '0';
 		}
-		i++;
 	}
 	if (map->hero != 1)
 		ft_error("check player in the map");

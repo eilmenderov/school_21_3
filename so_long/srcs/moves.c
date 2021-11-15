@@ -9,6 +9,8 @@ static void	ft_change_pos(t_data *data, size_t *pos, t_map *map, int fl)
 		*pos = *pos + 1;
 	else if (fl == -1)
 		*pos = *pos - 1;
+	if (map->field[data->p_y][data->p_x] == ENEMY)
+		exit(printf("Game Over, you lose =(\n"));
 	map->field[data->p_y][data->p_x] = HERO;
 	mlx_put_image_to_window(data->mlx, data->win, data->pic->none,
 		data->p_x * PIC_SIZE, data->p_y * PIC_SIZE);
@@ -32,7 +34,26 @@ static int	ft_check_new_pos(t_map *map, size_t x, size_t y)
 		map->earn_coins += 1;
 	map->moves += 1;
 	printf("Movements done %zu\n", map->moves);
+	ft_draw_info(map->data, map);
 	return (0);
+}
+
+void	ft_draw_info(t_data *data, t_map *map)
+{
+	char	*msg;
+
+	if (!data->bonus)
+		return ;
+	mlx_put_image_to_window(data->mlx, data->win, data->pic->empty,
+		PIC_SIZE / 3, PIC_SIZE / 16);
+	msg = ft_strjoin_m("MOVES: ", ft_itoa(map->moves), 2);
+	mlx_string_put(data->mlx, data->win, PIC_SIZE / 2, PIC_SIZE / 4,
+		T_COLOR, msg);
+	free(msg);
+	msg = ft_strjoin_m("COINS: ", ft_itoa(map->earn_coins), 2);
+	mlx_string_put(data->mlx, data->win, PIC_SIZE / 2, PIC_SIZE / 2,
+		T_COLOR, msg);
+	free(msg);
 }
 
 void	ft_step(t_data *data, int key, t_map *map)

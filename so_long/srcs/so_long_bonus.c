@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vleida <vleida@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 15:09:35 by vleida            #+#    #+#             */
-/*   Updated: 2021/10/06 16:48:18 by vleida           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "head_so_long.h"
 
 void	ft_error(char *msg)
@@ -78,7 +66,7 @@ int	main(int ac, char **av)
 		ft_error("incorrect arguments, need only one");
 	map.data = &data;
 	data.map = &map;
-	data.bonus = 0;
+	data.bonus = 1;
 	ft_parser(&map, av);
 	data.mlx = mlx_init();
 	if (!data.mlx)

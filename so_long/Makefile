@@ -1,6 +1,6 @@
 SRCS		=	so_long.c so_long_utils.c parser.c start_game.c moves.c
 
-BONUS		=	so_long.c so_long_utils.c parser.c start_game.c moves.c
+BONUS		=	so_long_bonus.c so_long_utils.c parser.c start_game.c moves.c
 
 SRCS_DIR	= ./srcs/
 
@@ -54,7 +54,11 @@ ${NAME}:	${OBJS} ${HEADER}
 			${CC} ${CFLAGS} -o ${NAME} -I ${HEADER} ${OBJS} ${LIB} ${MLX_LIBS}
 			@echo "${GREEN}${NAME} compile!${SHALLOW}"
 
-bonus:		libft minilibx ${BONUS_OBJS} ${HEADER}
+bonus:		${B_NAME}
+
+${B_NAME}:	${BONUS_OBJS} ${HEADER}
+			${MAKE} -C ./libft/
+			${MAKE} -C ./minilibx_opengl 2> /dev/null
 			${CC} ${CFLAGS} -o ${B_NAME} -I ${HEADER} ${BONUS_OBJS} ${LIB} ${MLX_LIBS}
 			@echo "${NEW}${B_NAME} compile!${SHALLOW}"
 norm:
